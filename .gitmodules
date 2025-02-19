@@ -33,15 +33,7 @@
 [submodule "src/competitor/hot/src"]
 	path = src/competitor/hot/src
 	url = https://github.com/speedskater/hot.git
-[submodule "module_path"]
-	path = module_path
-	url = yux20000304@github.com:cs-altindex/ALT-index.git
-	branch = main
 [submodule "src/competitors/alt/src"]
 	path = src/competitors/alt/src
-	url = https://github.com/cs-altindex/ALT-index.git
-	branch = master
-[submodule "src/competitor/alt/src"]
-	path = src/competitor/alt/src
 	url = https://github.com/cs-altindex/ALT-index.git
 	branch = master
