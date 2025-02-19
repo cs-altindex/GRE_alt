@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.14)
+cmake_minimum_required (VERSION 3.12)
 project (GRE)
 set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
 
@@ -6,12 +6,12 @@ include(FetchContent)
 include(ExternalProject)
 
 find_package(OpenMP)
-find_package(MKL REQUIRED)
 find_package(JeMalloc REQUIRED)
 find_package(TBB REQUIRED)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(MKL_INCLUDE_DIRS "/opt/intel/oneapi/mkl/2025.0/include")
 
 include_directories(${MKL_INCLUDE_DIRS})
 include_directories(${TBB_INCLUDE_DIRS})

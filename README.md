@@ -8,24 +8,44 @@ Chaichon Wongkham, Baotong Lu, Chris Liu, Zhicong Zhong, Eric Lo, and Tianzheng 
 
 ## Requirements
 - gcc 8.3.0+
-- cmake 3.14.0+
+- cmake 3.12.0+
 
 ## Dependencies
-- intel-mkl 2018.4.274
-- intel-tbb 2020.3
-- jemalloc
+- intel-mkl 2025.0.1.46
+```bash
+# download install script
+wget https://registrationcenter-download.intel.com/akdlm/IRC_NAS/dfc4a434-838c-4450-a6fe-2fa903b75aa7/intel-oneapi-base-toolkit-2025.0.1.46_offline.sh
 
-## Build
+# install intel oneapi
+sudo sh ./intel-oneapi-base-toolkit-2025.0.1.46_offline.sh -a --silent --cli --eula accept
+
+# then the intel oneapi is installed in /opt/intel/oneapi by default
+# set varaibles in CMakeLists.txt
+set(MKL_INCLUDE_DIRS "/opt/intel/oneapi/mkl/2025.0/include")
 ```
+- intel-tbb
+- jemalloc
+```bash
+sudo apt install libtbb-dev libjemalloc-dev
+```
+## Build
+```bash
 git submodule update --init # only for the first time
 mkdir -p build
 cd build
 cmake -DCMAKE_BUILD_TYPE=Release .. && make
+
+# download datasets
+cd datasets && sudo chmod 755 ./download.sh && ./download.sh
 ```
+Additional datasets can be found at:
+
+- [Longlat (200M 8-byte floats)](https://drive.google.com/file/d/1mH-y_PcLQ6p8kgAz9SB7ME4KeYAfRfmR/view?usp=sharing)
+- [YCSB (200M 8-byte unsigned ints)](https://drive.google.com/file/d/1Q89-v4FJLEwIKL3YY3oCeOEs0VUuv5bD/view?usp=sharing)
 
 ## Basic usage
 To calculate throughput:
-```
+```bash
 ./build/microbench \
 --keys_file=./data/dataset \
 --keys_file_type={binary,text} \
@@ -65,3 +85,9 @@ For additional features, add additional flags:
 --memory
 ```
 All the result will be output to the csv file specified in --output_path flag.
+
+## Use test script
+
+```bash
+./test.sh
+```
