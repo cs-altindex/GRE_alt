@@ -36,4 +36,6 @@
 [submodule "src/competitors/alt/src"]
 	path = src/competitors/alt/src
 	url = https://github.com/cs-altindex/ALT-index.git
-	branch = master
+[submodule "src/competitor/sali/src"]
+	path = src/competitor/sali/src
+	url = https://github.com/cds-ruc/SALI.git

@@ -17,6 +17,7 @@
 #include "masstree/masstree.h"
 #include "finedex/finedex.h"
 #include "alt/alt.h"
+#include "sali/sali.h"
 #include "iostream"
 
 template<class KEY_TYPE, class PAYLOAD_TYPE>
@@ -75,6 +76,9 @@ indexInterface<KEY_TYPE, PAYLOAD_TYPE> *get_index(std::string index_type) {
   }
   else if (index_type == "alt"){
     index = new altInterface<KEY_TYPE, PAYLOAD_TYPE>;
+  }
+  else if (index_type == "sali"){
+      index = new SALIInterface<KEY_TYPE, PAYLOAD_TYPE>;
   }
   else {
     std::cout << "Could not find a matching index called " << index_type << ".\n";

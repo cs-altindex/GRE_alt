@@ -42,7 +42,7 @@ for keys_file in ${keys_files[@]}; do
                       --table_size=2000000 \
                       --init_table_ratio=0.5 \
                       --thread_num=8 \
-                      --index=alt,finedex\
+                      --index=alt,sali\
                       --sample_distribution=uniform \
                       --output_path=./results/final_read_write.csv \
                       --latency_sample=1 \
